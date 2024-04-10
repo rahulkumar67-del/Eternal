@@ -1,0 +1,4 @@
+repository "Eternal@b23459@cloud"
+  path "/"
+    br "/main"
+    co "/main"
