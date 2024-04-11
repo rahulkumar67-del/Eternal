@@ -5,32 +5,31 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
-    private float currentHealth;
+    public float currentHealth { get; private set; }
+    private Animator animator;
+
     private void Awake()
     {
         currentHealth = startingHealth;
+        animator = GetComponent<Animator>();
     }
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
         if (currentHealth > 0)
         {
-            //player hurt
+            animator.SetTrigger("hurt");
         }
         else
         {
-            //palyerdeada
+            animator.SetTrigger("die");
         }
     }
 
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        if(Input.GetKeyDown(KeyCode.E))
+            TakeDamage(1);
         
     }
 }
