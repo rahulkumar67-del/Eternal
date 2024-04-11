@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController_2d : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     public Transform target;
     public float verticalLimitTop;
