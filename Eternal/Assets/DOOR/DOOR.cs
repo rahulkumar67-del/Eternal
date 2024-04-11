@@ -9,17 +9,17 @@ public class DOOR : MonoBehaviour
 
     [SerializeField] private Transform previousRoom; 
     [SerializeField] private Transform nextRoom;
-    [SerializeField] private CAMERA_LEVEL_CHANGE cam;
+    [SerializeField] private CameraController cam;
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "Player")
-        {
+        //if (collision.tag == "Player")
+        //{
 
-            if (collision.transform.position.x < transform.position.x) cam.MoveToNewRoom(nextRoom);
-            else
-             cam.MoveToNewRoom(previousRoom);
-        }
+        //    if (collision.transform.position.x < transform.position.x) cam.MoveToNewRoom(nextRoom);
+        //    else
+        //     cam.MoveToNewRoom(previousRoom);
+        //}
     }
 
 }
