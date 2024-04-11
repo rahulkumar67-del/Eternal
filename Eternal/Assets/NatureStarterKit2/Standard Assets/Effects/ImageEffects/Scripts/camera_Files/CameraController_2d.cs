@@ -1,39 +1,35 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+
+
+public class CameraController_2d : MonoBehaviour
 {
-    public Transform target;
-    public float verticalLimitTop;
-    public float verticalLimitBottom;
+    [SerializeField] private Transform target;
+    [SerializeField] private float smoothTime = 0.3f; // Adjust for desired smoothness
+    [SerializeField] private float verticalLimit = -5.0f; // Maximum depth the camera follows (negative for downward)
 
-    private Vector3 offset;
+    private Vector3 velocity;
+    private Camera mainCamera;
 
-    void Start()
+    private void Awake()
     {
-        if (target == null)
-        {
-            Debug.LogError("Target not assigned to camera controller!");
-            return;
-        }
-
-        offset = transform.position - target.position;
+        mainCamera = GetComponent<Camera>();
     }
 
-    void LateUpdate()
+    private void FixedUpdate()
     {
         if (target == null)
         {
             return;
         }
 
-        Vector3 targetPosition = target.position + offset;
-        targetPosition.x = transform.position.x;
+        Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z); // Maintain camera's Z position
 
-        if (target.position.y > verticalLimitTop || target.position.y < verticalLimitBottom)
-        {
-            targetPosition.y = transform.position.y;
-        }
+        // Clamp target position within vertical limit
+        targetPosition.y = Mathf.Clamp(targetPosition.y, verticalLimit, Mathf.Infinity);
 
-        transform.position = targetPosition;
+        Vector3 newPosition = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+
+        transform.position = newPosition;
     }
 }
