@@ -3534,8 +3534,6 @@ Transform:
   - {fileID: 1318870399}
   m_Father: {fileID: 660423136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &533718900
 --- !u!1 &553424125
 GameObject:
@@ -3742,7 +3740,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_GameObject: {fileID: 553424125}
   m_CullTransparentMesh: 1
->>>>>>> 15512e99f18601940ed0a1d83ce2aa0574b26eb9
 --- !u!1 &557206366
 GameObject:
   m_ObjectHideFlags: 0
