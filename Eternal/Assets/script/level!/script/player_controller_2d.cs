@@ -15,8 +15,6 @@ public class player_controller_2d : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
-    private Vector3 startingPosition;
-    [SerializeField] private float maxDepth;
 
     private bool grounded;
 
@@ -25,7 +23,6 @@ public class player_controller_2d : MonoBehaviour
         //Grabs references for rigidbody and animator from game object.
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        startingPosition = transform.position;
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -64,14 +61,6 @@ public class player_controller_2d : MonoBehaviour
         else
             wallJumpCooldown += Time.deltaTime;
 
-        if (transform.position.y < maxDepth)
-        {
-            // Reset the player's position to the starting position
-            transform.position = startingPosition;
-
-            // Reset any velocity the player had
-            body.velocity = Vector2.zero;
-        }
 
 
 

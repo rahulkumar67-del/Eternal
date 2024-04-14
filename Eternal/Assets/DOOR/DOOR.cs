@@ -47,3 +47,11 @@ class Door
     }
 }
 
+// Example usage
+Player player = new Player(10.0f, -40.0f, 0);
+Door door = new Door(5.0f, -40.0f, 11.02f, -44.0f, 0);
+
+player.CollideWithDoor(door);
+
+Console.WriteLine($"Player position after collision: ({player.x}, {player.y}, {player.z})");
+sss
