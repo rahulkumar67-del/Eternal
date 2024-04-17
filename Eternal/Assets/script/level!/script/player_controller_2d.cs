@@ -15,6 +15,10 @@ public class player_controller_2d : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
+    private Vector2 initialPosition;
+    Rigidbody2D rb;
+
+    [SerializeField] float minimumDistance = -100f;
 
     private bool grounded;
 
@@ -23,6 +27,9 @@ public class player_controller_2d : MonoBehaviour
         //Grabs references for rigidbody and animator from game object.
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        initialPosition = transform.position;
+
+   
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -61,6 +68,11 @@ public class player_controller_2d : MonoBehaviour
         else
             wallJumpCooldown += Time.deltaTime;
 
+        if (transform.position.y < minimumDistance)
+        {
+            body.position = initialPosition; // Reset using Rigidbody's position
+            body.velocity = new Vector2(0, 0);
+        }
 
 
 
@@ -101,5 +113,8 @@ public class player_controller_2d : MonoBehaviour
     {
         return horizontalInput == 0 && isGrounded() && !onWall();
     }
+
+
+    
 }
 

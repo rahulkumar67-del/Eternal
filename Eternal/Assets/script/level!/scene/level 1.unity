@@ -1138,9 +1138,9 @@ GameObject:
   m_Component:
   - component: {fileID: 150122135}
   - component: {fileID: 150122136}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: moving obstacels
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 1
-  moveSpeed: 1.5
+  moveSpeed: 5
 --- !u!1 &152655709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,8 +2366,6 @@ GameObject:
   - component: {fileID: 427244399}
   - component: {fileID: 427244400}
   - component: {fileID: 427244401}
-  - component: {fileID: 427244403}
-  - component: {fileID: 427244402}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -2534,6 +2532,7 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
+  minimumDistance: -100
 --- !u!95 &427244399
 Animator:
   serializedVersion: 5
@@ -2580,34 +2579,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e1fe1f38269cf49ae2df87477a83e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &427244402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427244393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62fe64cce7e5e254b86338801d9f8273, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  resetThreshold: -2
---- !u!114 &427244403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427244393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62fe64cce7e5e254b86338801d9f8273, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  resetThreshold: -2
 --- !u!1 &427550837
 GameObject:
   m_ObjectHideFlags: 0
@@ -12409,9 +12380,10 @@ GameObject:
   - component: {fileID: 1585275279}
   - component: {fileID: 1585275278}
   - component: {fileID: 1585275281}
+  - component: {fileID: 1585275282}
   m_Layer: 3
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12482,7 +12454,7 @@ Transform:
   m_GameObject: {fileID: 1585275277}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.6, y: -5.11, z: 0.010233207}
+  m_LocalPosition: {x: 42.1, y: -5.11, z: 0.010233207}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12515,6 +12487,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1585275282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585275277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb21290c378a39842839db8df813e8f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 10
+  moveSpeed: 3
 --- !u!1 &1586222833
 GameObject:
   m_ObjectHideFlags: 0
@@ -15232,7 +15218,7 @@ Transform:
   m_GameObject: {fileID: 1879011333}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.32, y: -5.98, z: 0}
+  m_LocalPosition: {x: 25.28, y: -5.98, z: 0}
   m_LocalScale: {x: 16, y: 16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
