@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1137,6 +1137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 150122135}
+  - component: {fileID: 150122136}
   m_Layer: 0
   m_Name: moving obstacels
   m_TagString: Untagged
@@ -1160,6 +1161,20 @@ Transform:
   - {fileID: 2043562138}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &150122136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150122134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb21290c378a39842839db8df813e8f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 1
+  moveSpeed: 1.5
 --- !u!1 &152655709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,6 +2366,8 @@ GameObject:
   - component: {fileID: 427244399}
   - component: {fileID: 427244400}
   - component: {fileID: 427244401}
+  - component: {fileID: 427244403}
+  - component: {fileID: 427244402}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -2563,7 +2580,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e1fe1f38269cf49ae2df87477a83e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorTransform: {fileID: 993342039}
+--- !u!114 &427244402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427244393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fe64cce7e5e254b86338801d9f8273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  resetThreshold: -2
+--- !u!114 &427244403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427244393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fe64cce7e5e254b86338801d9f8273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  resetThreshold: -2
 --- !u!1 &427550837
 GameObject:
   m_ObjectHideFlags: 0
@@ -12365,7 +12409,7 @@ GameObject:
   - component: {fileID: 1585275279}
   - component: {fileID: 1585275278}
   - component: {fileID: 1585275281}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -12384,7 +12428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e1fe1f38269cf49ae2df87477a83e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorTransform: {fileID: 0}
 --- !u!61 &1585275279
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12439,7 +12482,7 @@ Transform:
   m_GameObject: {fileID: 1585275277}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.04, y: -5.11, z: 0.010233207}
+  m_LocalPosition: {x: 18.6, y: -5.11, z: 0.010233207}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18438,3 +18481,4 @@ SceneRoots:
   - {fileID: 150122135}
   - {fileID: 808133027}
   - {fileID: 8345574907908467529}
+  - {fileID: 2109940520}
