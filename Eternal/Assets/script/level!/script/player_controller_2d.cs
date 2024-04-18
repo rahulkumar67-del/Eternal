@@ -22,6 +22,10 @@ public class player_controller_2d : MonoBehaviour
 
     private bool grounded;
 
+    [SerializeField] float raycastDistance = 1f;
+    [SerializeField] LayerMask doorLayerMask;
+    [SerializeField] Collider footCollider;
+
     private void Awake()
     {
         //Grabs references for rigidbody and animator from game object.
@@ -74,6 +78,23 @@ public class player_controller_2d : MonoBehaviour
             body.velocity = new Vector2(0, 0);
         }
 
+
+        if (footCollider != null && footCollider.enabled)
+        {
+            // Cast a ray from the foot collider's position downward
+            if (Physics.Raycast(footCollider.bounds.center, -Vector3.up, out RaycastHit hit, raycastDistance, doorLayerMask))
+            {
+                // Check if the object hit by the raycast is a door
+                if (hit.collider.CompareTag("Door"))
+                {
+                    transform.position = initialPosition;
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Foot collider is missing or disabled.");
+        }
 
 
     }

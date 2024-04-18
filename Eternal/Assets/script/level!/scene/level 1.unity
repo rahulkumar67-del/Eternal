@@ -2533,6 +2533,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   minimumDistance: -100
+  raycastDistance: 1
+  doorLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  footCollider: {fileID: 0}
 --- !u!95 &427244399
 Animator:
   serializedVersion: 5
@@ -12381,7 +12386,7 @@ GameObject:
   - component: {fileID: 1585275278}
   - component: {fileID: 1585275281}
   - component: {fileID: 1585275282}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Door
   m_TagString: Ground
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
