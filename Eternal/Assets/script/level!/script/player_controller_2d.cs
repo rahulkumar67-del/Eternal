@@ -30,7 +30,7 @@ public class player_controller_2d : MonoBehaviour
     {
         //Grabs references for rigidbody and animator from game object.
         body = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         initialPosition = transform.position;
 
    
