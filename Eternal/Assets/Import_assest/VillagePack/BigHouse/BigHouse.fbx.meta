@@ -444,7 +444,62 @@ ModelImporter:
   - first:
       43: 4300056
     second: Cylinder.003
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door
+    second: {fileID: 2100000, guid: 345fc4c15933bdf4db93ff4d7033ec0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door.001
+    second: {fileID: 2100000, guid: e323fbd085def45449e58d6d81f924f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorPlanks
+    second: {fileID: 2100000, guid: 631c4ef343cf1244ba612d164d258f15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorPlanks.001
+    second: {fileID: 2100000, guid: d539321840d1a994586c40bb647d61c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor
+    second: {fileID: 2100000, guid: 17030a46bf0ec7a4c8050d13f2d494c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof
+    second: {fileID: 2100000, guid: b56453184ab7ce34fb6127a43c8b4185, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoofBeam
+    second: {fileID: 2100000, guid: 84a4425ddd0f404459e50bc469394fb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VHDecorations
+    second: {fileID: 2100000, guid: 118c396fb8cbff940a9c97442790b4a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VHWalls
+    second: {fileID: 2100000, guid: 1c3b25dc28231214e8ee8f1d65d45337, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window_DoorFrame
+    second: {fileID: 2100000, guid: 33387e941d616e44691de513dd30ec1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window_DoorFrame.001
+    second: {fileID: 2100000, guid: 2f2d9c1aa40dea046aeae804b07e57d3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 2
@@ -457,8 +512,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 

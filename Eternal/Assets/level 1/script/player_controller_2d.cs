@@ -6,25 +6,34 @@ using UnityEngine.SceneManagement;
 public class player_controller_2d : MonoBehaviour
 
 {
+    //seria;izefield value of game object
     [SerializeField] private float speed;
-    private Rigidbody2D body;
-
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private LayerMask moveablelayer;
+    [SerializeField] float minimumDistance = -100f;
+    [SerializeField] float raycastDistance = 1f;
+    
+
+
+
+    // Access To GAmeObject
     private Animator anim;
     private BoxCollider2D boxCollider;
+    
+    private Collider footCollider;
+    private Rigidbody2D body;
+
+
+    // private value
+    private bool grounded;
     private float wallJumpCooldown;
     private float horizontalInput;
     private Vector2 initialPosition;
 
-    [SerializeField] float minimumDistance = -100f;
 
-    private bool grounded;
 
-    [SerializeField] float raycastDistance = 1f;
-    [SerializeField] LayerMask doorLayerMask;
-    private Collider footCollider;
 
     private void Awake()
     {
@@ -66,29 +75,14 @@ public class player_controller_2d : MonoBehaviour
         }
 
 
-        if (footCollider != null && footCollider.enabled)
-        {
-            // Cast a ray from the foot collider's position downward
-            if (Physics.Raycast(footCollider.bounds.center, -Vector3.up, out RaycastHit hit, raycastDistance, doorLayerMask))
-            {
-                // Check if the object hit by the raycast is a door
-                if (hit.collider.CompareTag("Door"))
-                {
-                    transform.position = initialPosition;
-                }
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Foot collider is missing or disabled.");
-        }
-
-
+    
+     
+ 
     }
 
     private void Jump()
     {
-        if (isGrounded())
+        if (isGrounded() || howermove())
         {
             body.velocity = new Vector2(body.velocity.x, jumpPower);
             anim.SetTrigger("jump");
@@ -112,7 +106,8 @@ public class player_controller_2d : MonoBehaviour
     public bool isGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
-        return raycastHit.collider != null;
+        RaycastHit2D raycastHit2 = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, moveablelayer);
+        return raycastHit.collider || raycastHit2.collider != null;
     }
     private bool onWall()
     {
@@ -131,6 +126,13 @@ public class player_controller_2d : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
+    }
+
+
+    public bool howermove()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, moveablelayer);
+        return raycastHit.collider != null;
     }
 }
 

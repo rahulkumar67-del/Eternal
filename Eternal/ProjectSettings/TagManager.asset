@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Enemy
   - SecretDoor
+  - moveable
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Enemy
   - object
   - Door
-  - 
+  - hower
   - 
   - 
   - 
@@ -41,18 +42,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1470320251
+    locked: 0
   - name: Ground
     uniqueID: 151783071
+    locked: 0
+  - name: Player
+    uniqueID: 3380428407
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 1470320251
-    locked: 0
   - name: forgeround
     uniqueID: 2210302015
-    locked: 0
-  - name: Player
-    uniqueID: 3380428407
     locked: 0
