@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class moveobstacel : MonoBehaviour
@@ -9,14 +7,13 @@ public class moveobstacel : MonoBehaviour
     [SerializeField] private Transform positionB;
     [SerializeField] private float Speed;
     private Vector2 targetPosition;
-
-
+    private Transform playerTransform;
+    private Vector3 playerOriginalScale;
 
     private void Awake()
     {
         targetPosition = positionB.position;
     }
-
 
     private void Update()
     {
@@ -30,34 +27,33 @@ public class moveobstacel : MonoBehaviour
             targetPosition = positionA.position;
         }
 
-
-        transform.position = Vector2.MoveTowards(transform.position
-            , targetPosition, Speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, Speed * Time.deltaTime);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerTransform = collision.transform;
+            // localscale = orignallocalscale/platformlocalscale
+            playerOriginalScale = playerTransform.localScale;
+            playerTransform.SetParent(transform, true);
+            playerTransform.localScale = transform.localScale;
+        }
+    }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        collision.transform.SetParent(this.transform);
-    //    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.transform.SetParent(null, true);
+            collision.transform.localScale = playerOriginalScale;
+        }
+    }
 
-
-    //}
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        collision.transform.SetParent(null);
-    //    }
-
-
-    //}
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawLine(positionA.position, positionB.position);
     }
-
 }
