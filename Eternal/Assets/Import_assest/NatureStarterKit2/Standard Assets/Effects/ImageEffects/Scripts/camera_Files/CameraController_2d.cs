@@ -28,7 +28,7 @@ public class CameraController_2d : MonoBehaviour
         // Clamp target position within vertical limit
         targetPosition.y = Mathf.Clamp(targetPosition.y, verticalLimit, Mathf.Infinity);
 
-        Vector3 newPosition = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        Vector3 newPosition = Vector3.SmoothDamp(transform.position , targetPosition, ref velocity, smoothTime);
 
         transform.position = newPosition;
     }

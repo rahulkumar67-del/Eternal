@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - SecretDoor
   - moveable
+  - Potion
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - object
   - Door
   - hower
-  - 
+  - Player
   - 
   - 
   - 
@@ -45,6 +46,9 @@ TagManager:
   - name: Background
     uniqueID: 1470320251
     locked: 0
+  - name: forgeround
+    uniqueID: 2210302015
+    locked: 0
   - name: Ground
     uniqueID: 151783071
     locked: 0
@@ -53,7 +57,4 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: forgeround
-    uniqueID: 2210302015
     locked: 0
