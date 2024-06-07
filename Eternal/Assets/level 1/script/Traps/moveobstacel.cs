@@ -1,14 +1,14 @@
-using System.Collections;
 using UnityEngine;
 
-public class moveobstacel : MonoBehaviour
+public class MoveObstacle : MonoBehaviour
 {
     [SerializeField] private Transform positionA;
     [SerializeField] private Transform positionB;
     [SerializeField] private float Speed;
     private Vector2 targetPosition;
-    private Transform playerTransform;
+
     private Vector3 playerOriginalScale;
+    private Transform playerTransform;
 
     private void Awake()
     {
@@ -32,30 +32,21 @@ public class moveobstacel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       // playerTransform = collision.transform;
-       // // localscale = orignallocalscale/platformlocalscale
-       // playerOriginalScale = playerTransform.localScale;
+        if (collision.CompareTag("Player"))
+        {
+            playerTransform = collision.transform;
+            playerOriginalScale = playerTransform.lossyScale;
 
-       // Debug.Log("playerOriginalScale" + playerOriginalScale);
-       // if (collision.CompareTag("Player"))
-       // {
-          
-       //     playerTransform.SetParent(transform, true);
-       //     Vector3 adjustedScale = new Vector3(
-       //    playerOriginalScale.x / transform.localScale.x,
-       //    playerOriginalScale.y / transform.localScale.y,
-       //    playerOriginalScale.z / transform.localScale.z
-       //);
+            Vector3 parentWorldScale = transform.lossyScale;
+            Vector3 newLocalScale = new Vector3(
+                playerOriginalScale.x / parentWorldScale.x,
+                playerOriginalScale.y / parentWorldScale.y,
+                playerOriginalScale.z / parentWorldScale.z
+            );
 
-       //     // Apply the adjusted scale to the player
-       //     //playerTransform.localScale = adjustedScale;
-
-       //     Debug.Log("playerOriginalafter: " + adjustedScale);
-       // }
-
-
-        collision.transform.SetParent(this.transform);
-
+            playerTransform.SetParent(transform);
+            playerTransform.localScale = newLocalScale;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -63,7 +54,7 @@ public class moveobstacel : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.transform.SetParent(null);
-            //collision.transform.localScale = playerOriginalScale;
+            collision.transform.localScale = playerOriginalScale; // Restore the original scale
         }
     }
 

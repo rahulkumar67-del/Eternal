@@ -7,8 +7,8 @@ public class player_controller_2d : MonoBehaviour
 
 {
     //seria;izefield value of game object
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpPower;
+    [SerializeField] public float speed;
+    [SerializeField] public float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private LayerMask moveablelayer;
@@ -20,7 +20,7 @@ public class player_controller_2d : MonoBehaviour
 
     // Access To GAmeObject
     private Animator anim;
-    private BoxCollider2D boxCollider;
+    public BoxCollider2D boxCollider;
     
     private Collider footCollider;
     private Rigidbody2D body;
@@ -53,9 +53,9 @@ public class player_controller_2d : MonoBehaviour
         print(isGrounded());
         //Flip player when facing left/right.
         if (horizontalInput > 0.01f)
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
         else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
 
         if (Input.GetKey(KeyCode.Space) && grounded)
             Jump();
