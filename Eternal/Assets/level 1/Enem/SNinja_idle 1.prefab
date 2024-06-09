@@ -138,12 +138,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 1
-  damage: 1
-  PlayerLayermask:
-    serializedVersion: 2
-    m_Bits: 2048
   range: 0
-  boxcollider: {fileID: 5643755253069922027}
+  damage: 1
+  colliderDistance: 0
+  boxCollider: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  SWORDSound: {fileID: 8300000, guid: 19086c79a2a4b2946b3ab5f2311853a6, type: 3}
 --- !u!61 &5643755253069922027
 BoxCollider2D:
   m_ObjectHideFlags: 0

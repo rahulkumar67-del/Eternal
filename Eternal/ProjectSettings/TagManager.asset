@@ -8,7 +8,8 @@ TagManager:
   - Enemy
   - SecretDoor
   - moveable
-  - Potion
+  - ScalePotion
+  - PowerPotion
   layers:
   - Default
   - TransparentFX

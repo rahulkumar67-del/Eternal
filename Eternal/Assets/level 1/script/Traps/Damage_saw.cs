@@ -8,10 +8,11 @@ public class Damage_saw : MonoBehaviour
     [SerializeField] private float Damage;
     [SerializeField] private float Speed;
     private float leftEdge;
-     private float rightEdge;
+    private float rightEdge;
 
     [SerializeField] private float movementdisatance;
     private bool movingleft;
+    [SerializeField] private AudioClip Sawsound;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class Damage_saw : MonoBehaviour
     }
     private void Update()
     {
+        SoundManager.instance.playsound(Sawsound);
         if (movingleft)
         {
             if (transform.position.x > leftEdge)

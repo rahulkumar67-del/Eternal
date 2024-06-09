@@ -6,6 +6,7 @@ public class projectile : MonoBehaviour
     private float direction;
     private bool hit;
     private float lifetime;
+    [SerializeField] private AudioClip fireballsound;
 
     private Animator anim;
     private BoxCollider2D boxCollider;
@@ -19,6 +20,7 @@ public class projectile : MonoBehaviour
     private void Update()
     {
         if (hit) return;
+        SoundManager.instance.playsound(fireballsound);
 
         float movementSpeed = speed * Time.deltaTime * direction;
         transform.Translate(movementSpeed, 0, 0);

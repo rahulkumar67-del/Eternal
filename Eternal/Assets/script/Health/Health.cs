@@ -93,6 +93,8 @@ public class Health : MonoBehaviour
 
     //}
 
+    [SerializeField] private AudioClip HurtSound;
+    [SerializeField] private AudioClip Diesound;
 
     [SerializeField] private float startingHealth;
     public float currentHealth {  get; private set; }
@@ -117,6 +119,7 @@ public class Health : MonoBehaviour
 
         if (currentHealth > 0)
         {
+            SoundManager.instance.playsound(HurtSound);
             animator.SetTrigger("hurt");
             
 
@@ -126,6 +129,7 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 animator.SetTrigger("die");
+                SoundManager.instance.playsound(Diesound);
                 if (GetComponent<player_controller_2d>() != null)
                 { 
                     GetComponent<player_controller_2d>().enabled = false;

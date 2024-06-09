@@ -9,7 +9,7 @@ public class player_potion : MonoBehaviour
     private float initaljumpp;
     private player_controller_2d player_Controller_2D;
     private BoxCollider2D boxx;
-    [SerializeField] private LayerMask moveablelayer;
+    
     private Vector3 scalevector;
 
     private void Awake()
@@ -25,26 +25,33 @@ public class player_potion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Potion"))
+        if (collision.CompareTag("ScalePotion"))
         {
             transform.localScale = scalevector;
-            timeduration = powertime;
-
-            player_Controller_2D.speed = 1.5f * player_Controller_2D.speed;
-            player_Controller_2D.jumpPower = 1.25f* player_Controller_2D.jumpPower;
-           
+            Destroy(collision.gameObject);
 
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PowerPotion"))
+        {
+            timeduration = powertime;
+
+            player_Controller_2D.speed = 1.5f * player_Controller_2D.speed;
+            player_Controller_2D.jumpPower = 1.25f * player_Controller_2D.jumpPower;
+            Destroy(other.gameObject);
+        }
     }
 
     private void Update()
     {
         if (timeduration > 0)
         {
-            RaycastHit2D raycastHit2 = Physics2D.BoxCast(boxx.bounds.center, boxx.bounds.size, 0, Vector2.down, 0.1f, moveablelayer);
-            timeduration -= Time.deltaTime;
-            if (timeduration <= 0 && !(raycastHit2.collider != null))
+          
+            if (timeduration <= 0 )
             {
                // transform.localScale = initscale;
                 Debug.Log("transform scal after it retun to its original position0" + transform.localScale);

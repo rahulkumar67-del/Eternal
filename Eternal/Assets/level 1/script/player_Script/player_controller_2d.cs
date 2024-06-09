@@ -14,7 +14,9 @@ public class player_controller_2d : MonoBehaviour
     [SerializeField] private LayerMask moveablelayer;
     [SerializeField] float minimumDistance = -100f;
     [SerializeField] float raycastDistance = 1f;
-    
+
+
+    [SerializeField] private AudioClip Jumpsound;
 
 
 
@@ -66,7 +68,12 @@ public class player_controller_2d : MonoBehaviour
 
 
         if (Input.GetKey(KeyCode.Space))
-            Jump();
+        { Jump();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SoundManager.instance.playsound(Jumpsound);
+            }
+        }
 
         if (transform.position.y < minimumDistance)
         {

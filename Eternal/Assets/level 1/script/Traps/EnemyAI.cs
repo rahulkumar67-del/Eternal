@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     private Animator anim;
     private Health playerHealth;
     private EnemyPatrol enemyPatrol;
-
+    [SerializeField] private AudioClip SWORDSound;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -34,10 +34,11 @@ public class EnemyAI : MonoBehaviour
         //Attack only when player in sight?
         if (PlayerInSight())
         {
-            if (cooldownTimer >= attackCooldown)
+            if (cooldownTimer >= attackCooldown  && playerHealth.currentHealth>0)
             {
                 cooldownTimer = 0;
                 anim.SetTrigger("attack");
+                SoundManager.instance.playsound(SWORDSound);
             }
         }
 
