@@ -26,6 +26,10 @@ This is a 2D game where the player must navigate through an endless environment,
 2. Run the `game.exe` (for Windows) or the provided executable file for your OS.
 3. Enjoy the game!
 
+Play the Game
+
+You can play the game from here: https://drive.google.com/drive/folders/16geD22PRJXHXO8q2pZsjJgzoTZBObakT
+
 ## Future Improvements
 - Power-ups and abilities for the player.
 - Additional enemy types with different behaviors.
